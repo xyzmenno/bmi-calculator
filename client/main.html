@@ -1,0 +1,17 @@
+<head>
+  <title>bmi-calculator</title>
+</head>
+
+<body>
+  {{> form}}
+</body>
+
+<template name="form">
+  <form class="input-form">
+    <input type="text" name="length" placeholder="1.80">
+    <input type="text" name="weigth" placeholder="65">
+    <button class="calculate" type="submit">Calculate</button>
+  </form>
+  {{result}}
+</template>
+
