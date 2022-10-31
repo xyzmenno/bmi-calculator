@@ -11,12 +11,21 @@ Template.form.helpers({
     const weigth = Template.form.weigth.get()
 
 
-    const bmi = weigth / (length * length).toFixed(2)
-    console.log(bmi)
+    const x = weigth / (length * length)
+    const bmi = x.toFixed(2)
+    console.log(x)
 
     if (bmi < 18.5) {
-      return bmi + "ondergewicht"
-    }
+      return bmi + " ondergewicht"
+    } else if (bmi < 24.9) {
+      return bmi + " normaal"
+    } else if (bmi < 29.9) {
+      return bmi + " overgewicht"
+    } else if (bmi < 34.9) {
+      return bmi + " obesitas"
+    } else if (bmi > 35) {
+      return bmi + " extreme obesitas"
+    } 
   },
 });
 
