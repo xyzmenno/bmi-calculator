@@ -3,14 +3,27 @@
 </head>
 
 <body>
+  
+  <div class=" h-100 d-flex justify-content-center align-items-center">
+
   {{> form}}
+
+  </div>
+
 </body>
 
 <template name="form">
+  
   <form class="input-form">
-    <input type="text" name="length" placeholder="1.80">
-    <input type="text" name="weigth" placeholder="65">
-    <button class="calculate" type="submit">Calculate</button>
+    <div class="form-group">
+      <label for="length">Length (CM)</label>
+      <input type="text" name="length" placeholder="1.80">
+    </div>
+    <div class="form-group">
+      <label for="weight">Weigth (KG)</label>
+      <input type="text" name="weigth" placeholder="65">
+    </div>
+    <button class="calculate btn btn-success" type="submit">Calculate</button>
   </form>
   {{result}}
 </template>

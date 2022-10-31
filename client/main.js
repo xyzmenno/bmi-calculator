@@ -10,10 +10,17 @@ Template.form.helpers({
     const length = Template.form.length.get()
     const weigth = Template.form.weigth.get()
 
+    if(length == '' && weigth == '') {
+      return null
+    } else {
 
     const x = weigth / (length * length)
     const bmi = x.toFixed(2)
-    console.log(x)
+
+    if (!x) {
+      Bert.alert( 'Error', 'danger', 'growl-top-right' );
+      return null
+    }
 
     if (bmi < 18.5) {
       return bmi + " ondergewicht"
@@ -26,6 +33,12 @@ Template.form.helpers({
     } else if (bmi > 35) {
       return bmi + " extreme obesitas"
     } 
+
+    }
+
+    Template.form.length.set('')
+    Template.form.weigth.set('')
+    
   },
 });
 
@@ -46,6 +59,6 @@ Template.form.events({
 });
 
 Template.form.onCreated(function () {
-	Template.form.length = new ReactiveVar({});
-	Template.form.weigth = new ReactiveVar({});
+	Template.form.length = new ReactiveVar('');
+	Template.form.weigth = new ReactiveVar('');
 });
